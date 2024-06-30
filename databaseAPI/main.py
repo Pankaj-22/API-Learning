@@ -1,12 +1,18 @@
-from flask import Flask , request , jsonify
-import json
+from flask import Flask , request 
+from  flask_cors import CORS , cross_origin
+# import json
 import dbConnect
 
 app = Flask(__name__)
+CORS(app)
+# cors = CORS(app, resources={r"/*": {"origins": "*"}})  # for specfic resources
+# @app.route("/")
+# @cross_origin()
 
 obj=dbConnect.mySqlDB("localhost","root","123","test")
 
 @app.route("/")
+# @cross_origin()
 def index():
     return 'Hello, World! from Main'
 
