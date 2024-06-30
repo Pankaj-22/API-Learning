@@ -16,7 +16,6 @@
     </head>
     <body>
         <div class="container">
-            <br>
             <h1>Home Page</h1>
             <br>
             <h2>API learning</h2>
@@ -34,7 +33,19 @@
             </table>
             <p>Click below <b>Load</b> button to fetch customer data from api</p>
             <button class="btn-success" id="load" onclick="load()">Load Data</button>
-            
+        </div>
+        <div class="container">
+            <table class="table">
+                <caption class="caption-top">Customer Data</caption>
+                <thead>
+                    <tr class="bg-info"><th>SNo</th><th>Name</th><th>Address</th></tr>
+                </thead>
+                <tbody id="fetchOneCustDetails" >
+                        <!-- API output -->
+                </tbody>
+            </table>
+            <p>Click below <b>Load</b> button to fetch 2nd customer data from api</p>
+            <button class="btn-success" id="loadOne" onclick="loadOne()">Load One Data</button>
         </div>
         <!-- index JS-->
         <script  type="text/javascript" src="./index.js"></script>

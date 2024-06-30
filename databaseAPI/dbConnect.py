@@ -13,7 +13,7 @@ class mySqlDB:
     self.password = p
     self.database = d
     self.conn=mySqlLib.connect(host=self.host,user=self.user,password=self.password,database=self.database)
-    self.myCursor = self.conn.cursor() 
+    self.myCursor = self.conn.cursor()
 
   def printHeader(self):      
       """Select Header from Table"""
@@ -38,8 +38,9 @@ class mySqlDB:
         myCursor=self.myCursor
         sql = "select * from customers where id = ({})".format(id,)
         myCursor.execute(sql)
-        results=myCursor.fetchall()
-        return results
+        results = [dict((myCursor.description[i][0], value) \
+                        for i, value in enumerate(row)) for row in myCursor.fetchall()]
+        return jsonify(results)
  
   def inserData(self,name,add):
         """Insert Data into table"""
@@ -51,8 +52,9 @@ class mySqlDB:
         result = str(myCursor.rowcount)+ " row inserted"
         return result
   
-  def closeConnection(self):
+  def __del__(self):
       self.myCursor.close()
+      self.conn.close()
 
 
 # obj=mySqlDB("localhost","root","123","test")
@@ -62,20 +64,3 @@ class mySqlDB:
 # add="Town 5"
 # f = obj.inserData(name,add)
 # print(f)
-# mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
-
-
-#mycursor.execute("select * from customers")
-
-
-
-#Column Name
-# num_fields = len(mycursor.description)
-# print(num_fields)
-
-
-#Column Details
-# for i in mycursor.description:
-#      print(i)
-
-#Row data
