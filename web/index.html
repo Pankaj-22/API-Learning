@@ -24,12 +24,17 @@
         </div>
         <div class="container">
             <table class="table">
-                <tr class="table-primary"><th>SNo.</th><th>Name</th><th>Address</th></tr>
-                <tr><td id="seq">1</td><td id=name>N</td><td id="add">ADD</td></tr>
-                
+                <caption class="caption-top">Customer Data</caption>
+                <thead>
+                    <tr class="bg-info"><th>SNo</th><th>Name</th><th>Address</th></tr>
+                </thead>
+                <tbody id="fetchCustDetails" >
+                        <!-- API output -->
+                </tbody>
             </table>
-            <button class="btn-outline-success" id="load" onclick="load()">Load Data</button>
-            <button class="btn-outline-danger" id="tog" onclick="ptoggle()">Toggle</button>
+            <p>Click below <b>Load</b> button to fetch customer data from api</p>
+            <button class="btn-success" id="load" onclick="load()">Load Data</button>
+            
         </div>
         <!-- index JS-->
         <script  type="text/javascript" src="./index.js"></script>

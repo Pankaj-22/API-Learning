@@ -1,6 +1,5 @@
 from flask import Flask , request 
 from  flask_cors import CORS , cross_origin
-# import json
 import dbConnect
 
 app = Flask(__name__)
@@ -23,8 +22,7 @@ def mySQLdbConnect():
 
 @app.route("/all", methods=["GET"])
 def displayAll():
-    result = obj.selectAllData()
-    return result
+    return  obj.selectAllData()     
 
 @app.route("/id/<int:id>", methods=["GET"])
 def SelectIdDetails(id):

@@ -4,6 +4,7 @@
 # Can use any lib (mysql.connector or pymysql) to connect MySQL
 #
 import mysql.connector as mySqlLib
+from flask import jsonify
 
 class mySqlDB:
   def __init__(self,h,u,p,d):
@@ -27,8 +28,10 @@ class mySqlDB:
         """Select Data from Table"""
         myCursor=self.myCursor
         myCursor.execute("select * from customers")
-        results=myCursor.fetchall()
-        return results
+        results = [dict((myCursor.description[i][0], value) \
+                        for i, value in enumerate(row)) for row in myCursor.fetchall()]
+        return jsonify(results)
+  
   
   def selectIdData(self,id):
         """Select Data from Table"""
@@ -47,6 +50,9 @@ class mySqlDB:
         self.conn.commit()
         result = str(myCursor.rowcount)+ " row inserted"
         return result
+  
+  def closeConnection(self):
+      self.myCursor.close()
 
 
 # obj=mySqlDB("localhost","root","123","test")
