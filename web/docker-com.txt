@@ -4,7 +4,7 @@ services:
     image: nginx
     container_name: apiTestingWebsite
     volumes:
-      - D:\WorkSpace\API-Learning\web:/usr/share/html
+      - D:\WorkSpace\API-Learning\web\html:/usr/share/html
     ports:
       - "8080:80"
     restart: always
