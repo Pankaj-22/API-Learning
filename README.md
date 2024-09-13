@@ -17,11 +17,14 @@ open/host index.html in a web browser
 # Running by Docker
 ## Create Docker Network
 docker network create localDockerNet --driver bridge
+
 docker network inspect localDockerNet
 
 ## Create DataBase container
-cmd> docker pull mysql
-cmd> docker run -dit --name mysqldbServer --network localDockerNet -e MYSQL_ROOT_PASSWORD=123 -p 3306:3306 mysql
+docker pull mysql
+
+docker run -dit --name mysqldbServer --network localDockerNet -e MYSQL_ROOT_PASSWORD=123 -p 3306:3306 mysql
+
 can connect any docker container by Eg :- docker network connect localDockerNet mysqldbServer
 
 ## Configure Database
