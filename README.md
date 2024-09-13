@@ -31,13 +31,11 @@ Configs --> hostname:localhost:3306(depend on which port db services are running
 create database and Tables
 
 ## Create API Container
-D:\WorkSpace\API-Learning\databaseAPIDocker> docker build -t flask-api-app:1.0.version ./path of your DOCKERFILE
-
-D:\WorkSpace\API-Learning\databaseAPIDocker> docker run -dit --name flaskApiContainer --network localDockerNet -p 5000:5000 flask-api-app:1.0.version
+docker build -t flask-api-app:1.0.version ./path of your DOCKERFILE
+docker run -dit --name flaskApiContainer --network localDockerNet -p 5000:5000 flask-api-app:1.0.version
 
 ## Create WEB Interface for API
-D:\WorkSpace\API-Learning\webDocker> docker build -t api-web-interface:1.0.version ./path of your DOCKERFILE
-
-D:\WorkSpace\API-Learning\webDocker> docker run -dit --rm --name apiWebInterface -p 5500:80 api-web-interface:1.0.version
+docker build -t api-web-interface:1.0.version ./path of your DOCKERFILE
+docker run -dit --rm --name apiWebInterface -p 5500:80 api-web-interface:1.0.version
 
 ----------------------------------------------DONE------------------------------------------------
