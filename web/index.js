@@ -2,7 +2,30 @@
 function ptoggle() {
         $("p").toggle();
 }
-    
+ 
+// Checking connectivity
+function testConn() {  
+    const apiUrl = 'http://127.0.0.1:5000/';    
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+                return response.json();
+            })
+        .then(data => {
+            // Display data in an HTML element
+            const placeholder = document.getElementById('testConn');
+            let out = "";
+            out += `<span> ${data} </span>`;
+            placeholder.innerHTML = out; 
+        })
+        .catch(error => {
+            console.error('Error:', error);
+    });  
+}
+
+
  // Calling API  and updating span id = fetchCustDetails
 function load() {  
     const apiUrl = 'http://127.0.0.1:5000/all';    

@@ -1,0 +1,4 @@
+docker network create myNetwork
+docker network connect myNetwork lucid_kepler
+docker network connect myNetwork mysql-database
+docker network inspect myNetwork
