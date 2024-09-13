@@ -8,7 +8,7 @@ CORS(app)
 # @app.route("/")
 # @cross_origin()
 
-# obj=dbConnect.mySqlDB("localhost","root","123","test")
+ obj=dbConnect.mySqlDB("localhost","root","123","test")
 
 @app.route("/")
 # @cross_origin()
