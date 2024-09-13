@@ -32,10 +32,12 @@ create database and Tables
 
 ## Create API Container
 docker build -t flask-api-app:1.0.version ./path of your DOCKERFILE
+
 docker run -dit --name flaskApiContainer --network localDockerNet -p 5000:5000 flask-api-app:1.0.version
 
 ## Create WEB Interface for API
 docker build -t api-web-interface:1.0.version ./path of your DOCKERFILE
+
 docker run -dit --rm --name apiWebInterface -p 5500:80 api-web-interface:1.0.version
 
 ----------------------------------------------DONE------------------------------------------------
