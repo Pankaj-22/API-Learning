@@ -13,7 +13,7 @@ CORS(app)
 @app.route("/")
 # @cross_origin()
 def index():
-    return 'Hello, World! from Main'
+    return 'Hello, World! from API'
 
 @app.route("/dbconnect", methods=["GET"])
 def mySQLdbConnect():
