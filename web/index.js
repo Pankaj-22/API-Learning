@@ -2,27 +2,28 @@
 function ptoggle() {
         $("p").toggle();
 }
- 
-  
-// Checking connectivity
-function testConn() {  
-    const apiUrl = 'http://127.0.0.1:5000/';    
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-                return response.status;
-            })
-        .then(status => {
-            // Display data in an HTML element
-            const placeholder = document.getElementById('testConnResp');
-            placeholder.innerHTML = `<p> Status: ${status}</p>`; 
-        })
-        .catch(error => {
-            console.error('Error:', error);
-    });  
+
+
+//Test connectivity
+function testConn() { 
+    const apiUrl = 'http://127.0.0.1:5000/';
+    const placeholder = document.getElementById('testConnResp');
+    fetch(apiUrl).then((response) => {
+        if (response.ok) {
+          return response.status;
+        }
+        throw new Error('Something went wrong');
+      })
+      .then((status) => {
+        // Do something with the response
+        placeholder.innerHTML = `<p> Status: ${status}</p>`;
+      })
+      .catch((error) => {
+        console.log(error)
+        placeholder.innerHTML = `<p> Status: Unable to connect : ${error}</p>`;
+      });
 }
+
 
 
  // Calling API  and updating span id = fetchCustDetails
