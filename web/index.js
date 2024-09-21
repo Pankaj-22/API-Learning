@@ -12,12 +12,12 @@ function testConn() {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-                return response.text();
+                return response.status;
             })
-        .then((text) => {
+        .then(status => {
             // Display data in an HTML element
             const placeholder = document.getElementById('testConnResp');
-            placeholder.innerHTML = `<p>${text}</p>`; 
+            placeholder.innerHTML = `<p> Status: ${status}</p>`; 
         })
         .catch(error => {
             console.error('Error:', error);
